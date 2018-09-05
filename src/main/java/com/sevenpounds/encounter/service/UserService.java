@@ -1,5 +1,9 @@
 package com.sevenpounds.encounter.service;
 
-public class UserService {
+/**
+ * Create by jingzfan on 9/5/2018.
+ */
+public interface UserService {
+
 
 }

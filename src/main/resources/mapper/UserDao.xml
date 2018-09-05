@@ -9,4 +9,38 @@
 		FROM user
 	</select>
 
+	<insert id="insertUser" useGeneratedKeys="true" keyProperty="userId"
+			keyColumn="user_id">
+		INSERT INTO
+		user(user_name,user_type,password,
+		gender)
+		VALUES
+		(#{userName},#{userType},#{password},
+		#{gender})
+	</insert>
+
+	<delete id="deleteUser">
+		DELETE FROM
+		user
+		WHERE
+		user_id =
+		#{userId}
+	</delete>
+
+	<update id="updateUserName" parameterType="com.sevenpounds.encounter.entity.User">
+		update user
+		<set>
+			<if test="userName != null">user_name=#{areaName}</if>
+		</set>
+		where user_id=#{userId}
+	</update>
+
+	<update id="updatePassword" parameterType="com.sevenpounds.encounter.entity.User">
+		update user
+		<set>
+			<if test="password != null">user_name=#{password}</if>
+		</set>
+		where user_id=#{userId}
+	</update>
+
 	</mapper>
