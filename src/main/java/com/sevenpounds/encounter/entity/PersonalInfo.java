@@ -23,7 +23,7 @@ public class PersonalInfo {
     private int user_weight;
     //用户年龄
     private int user_age;
-    //用户地址
+    //用户地址 location
     private String user_address;
     //用户爱好
     private String user_hobby;
