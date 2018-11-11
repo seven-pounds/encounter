@@ -1,131 +1,941 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>用户注册</title>
-<meta name="description"
-	content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
-<meta name="author" content="阿里巴巴国际UED前端">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<link rel="shortcut icon" href="/favicon.ico">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="format-detection" content="telephone=no">
-
-<!-- Google Web Fonts -->
-
-<link rel="stylesheet"
-	href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-<link rel="stylesheet"
-	href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
-
-<link rel="apple-touch-icon-precomposed"
-	href="/assets/img/apple-touch-icon-114x114.png">
-
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>美丽邂逅</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <link href="../resources/css/frontend/base.css" rel="stylesheet">
+    <link href="../resources/css/frontend/portal_new.css" rel="stylesheet">
 </head>
-<body>
-	<div class="page-group">
-		<div id="page-label-input" class="page">
-			<header class="bar bar-nav">
-				<a class="button button-link button-nav pull-left back"
-					href="/demos/form"> <span class="icon icon-left"></span> 返回
-				</a>
-				<h1 class="title">用户注册</h1>
-			</header>
-			<div class="content">
-				<div class="list-block">
-					<ul>
-						<!-- Text inputs -->
-						<li>
-							<div class="item-content">
-								<div class="item-inner">
-									<div class="item-title label">用户名</div>
-									<div class="item-input">
-										<input type="text" id="user-name" placeholder="请输入用户名">
-									</div>
-								</div>
-							</div>
-						</li>
-						
-						<!-- 密码 -->
-						<li>
-							<div class="item-content">
-								<div class="item-inner">
-									<div class="item-title label">密码</div>
-									<div class="item-input">
-										<input type="password" id="password" placeholder="请输入密码">
-									</div>
-								</div>
-							</div>
-						</li>
-						<!-- 确认密码 -->
-						<li>
-							<div class="item-content">
-								<div class="item-inner">
-									<div class="item-title label">确认密码</div>
-									<div class="item-input">
-										<input type="password" id="confirmpassword" placeholder="请再次输入密码">
-									</div>
-								</div>
-							</div>
-						</li>
-						
-						
-						<li>
-                             <div class="item-content">
-                             <div class="item-inner">
-                             <div class="item-title label">性别</div>
-                             <div class="item-input">
-                               <select>
-                                  <option>男</option>
-                                  <option>女</option>
-                               </select>
-                           </div>
-                          </div>
-                       </div>
-                   </li>
-						
-						<!-- 验证码 ka -->
-						<li>
-							<div class="item-content">
-								<div class="item-inner">
-									<div class="item-title label">验证码</div>
-									<input type="text" id="j_captcha" placeholder="验证码">
-									<div class="item-input">
-										<img id="captcha_img" alt="点击更换" title="点击更换"
-											onclick="changeVerifyCode(this)" src="../Kaptcha" />
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="content-block">
-					<div class="row">
-						<div class="col-50">
-							<a href="/o2o/shopadmin/shopmanagement" class="button button-big button-fill button-danger">返回</a>
-						</div>
-						<div class="col-50">
-							<a href="#" class="button button-big button-fill button-success"
-								id="submit">提交</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
-	</div>
-	<script type='text/javascript'
-		src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-	<script type='text/javascript'
-		src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-	<script type='text/javascript'
-		src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
-	<script type='text/javascript' src='../resources/js/common/common.js'
-		charset='utf-8'></script>
-	<script type='text/javascript'
-		src='../resources/js/shop/shopoperation.js' charset='utf-8'></script>
-</body>
-</html>
+<body>
+<div class="wrap">
+    <!--登陆状态 start-->
+    <div class="login_header">
+        <div class="header_top">
+            <div class="layout clearfix">
+
+                <div class="search_outter">
+                    <form class="xmc_fl" action="http://muchong.com/bbs//search.php">
+                        <div class="search" id="J_search">
+                            <div class="ipt_wrap">
+                                <input name="wd" class="ipt" type="text" placeholder="关键字">
+                            </div>
+                            <div class="btn_search">
+                                <button class="iconfont icon-search" type="submit"></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="menu">
+                    <div class="menu_pop_hook message">
+                        <div class="bell">
+                            <i class="iconfont icon-bell"></i>
+                        </div>
+                        <div class="menu_pop" style="display: none;"><i class="arrow"></i>
+                            <div class="msg_tab" id="J_msg_tab">
+                                <div class="tab_hd">
+                                    <ul>
+                                        <li class="cur">短消息</li>
+                                        <li>提醒</li>
+                                    </ul>
+                                </div>
+                                <div class="tab_bd">
+                                    <div class="tab_con" style="display: block;">
+                                        <!--短消息 start-->
+                                        <div class="msg_list">
+                                            <ul>
+                                                <div class="no_data">暂无短消息...</div>
+                                            </ul>
+                                        </div>
+                                        <a class="btn_look" href="http://muchong.com/bbs/box.php" target="_blank">查看所有短消息</a>
+                                        <!--短消息 end-->
+                                    </div>
+                                    <div class="tab_con" style="display: none;">
+                                        <!--提醒 start-->
+                                        <div class="msg_list">
+                                            <ul>
+                                                <div class="no_data">暂无提醒...</div>
+                                            </ul>
+                                        </div>
+                                        <a class="btn_look" href="http://muchong.com/bbs/space.php?uid=5820335&amp;view=note">查看所有提醒</a>
+                                        <!--提醒 start-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu_pop_hook info">
+                        <div class="user">
+                            <img class="avatar" alt="" src=""><span>我本风雅</span>
+                        </div>
+
+                        <div class="menu_pop" style="display: none;"><i class="arrow"></i>
+                            <div class="info_list">
+                                <ul>
+                                    <li><a href="http://muchong.com/bbs/space.php?uid=5820335" target="_blank">我的主页</a></li>
+                                    <li><a href="http://muchong.com/bbs/logging.php?action=logout&amp;t=1541672314" target="_blank">退出登陆</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu_pop_hook info">
+                        <div class="user">
+                            <a href="/user/loginPage"><span>登陆</span></a>
+                        </div>
+                    </div>
+                    <div class="menu_pop_hook info">
+                        <div class="user">
+                            <a href="/user/registerPage"><span>注册</span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="nav">
+            <div class="layout">
+                <ul class="clearfix">
+                <li class="on"><a href="http://muchong.com/">首页</a></li>
+
+
+                <li><a href="http://muchong.com/journal.php">期刊</a></li>
+                <li><a href="http://muchong.com/discovery.php">发现</a></li>
+                <li><a href="http://muchong.com/r.php">研究方向</a></li><li><a href="http://muchong.com/bbs/" target="_blank">社区</a></li>
+                <!--<li><a href="http://lab.muchong.com/" target="_blank">仪器共享</a></li>-->
+                <li><a href="https://www.zhuanyejun.com" target="_blank">论文服务</a></li>
+
+            </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <div class="layout mt15 index clearfix" id="J_index">
+        <div class="w880 fl">
+            <div class="tab">
+                <div class="tab_hd">
+                    <ul>
+                        <li class="cur"><span>最新动态</span></li>
+
+                    </ul>
+                    <a class="btn_manage" href="myread.php" target="_blank">订阅管理</a>
+                </div>
+                <div class="tab_bd">
+                    <div class="tab_con" style="display: block;">
+                        <div class="index_list index_new_list">
+                            <div class="list_item clearfix">
+                                <h3 class="ititle"><a href="http://muchong.com/t-12748508-1" target="_blank">博一新手，请教大家博士期间的整体思路。</a></h3>
+                                <div class="icontent">
+                                    <a href="http://muchong.com/bbs/space.php?uid=763998" target="_blank">
+                                        <div class="iuser">
+                                            <div class="avatar">
+                                                <img src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/app/noavatar.png">
+                                            </div>
+                                            <div class="iname">sunshine7358</div>
+                                            <div class="imotto"></div>
+                                        </div>
+                                    </a>
+                                    <div class="itext">
+                                        <div class="nop">我硕士毕业后工作7年因为各种不得已的因素现在全日制读博食品方向因7年的工作中处于脱离科研的状态所以现在感觉一切都很吃力看文献吃力文献检索方法也总是不得当科研思路不上道加之孩子只有4岁（我是妈妈）高额的房贷......导师人很好但是非常忙因为刚到了新的工作环境压...  <a class="more_txt" href="http://muchong.com/t-12748508-1" target="_blank">显示全部</a></div>
+                                    </div>
+                                    <div class="iother clearfix">
+                                        <a href="http://muchong.com/f-198-1" target="_blank"><span class="board_name">硕博家园</span></a>
+                                        <ul>
+                                            <li>
+                                                <i class="iconfont icon-view"></i><span>150</span>
+                                            </li>
+                                            <li>
+                                                <i class="iconfont icon-comment"></i><span>3</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><div class="list_item clearfix">
+                            <h3 class="ititle"><a href="http://muchong.com/t-12748499-1" target="_blank">麻烦大家帮忙看看这个垃圾是谁</a></h3>
+                            <div class="icontent">
+                                <a href="http://muchong.com/bbs/space.php?uid=11072966" target="_blank">
+                                    <div class="iuser">
+                                        <div class="avatar">
+                                            <img src="http://muchongimg.xmcimg.com/oss2/avatar/44/a9/11072966_1541647181.png">
+                                        </div>
+                                        <div class="iname">lfx1988</div>
+                                        <div class="imotto"></div>
+                                    </div>
+                                </a>
+                                <div class="itext">
+                                    <div class="nop">麻烦大家帮忙看一下这个人是谁？上来就要舔还问别人喜欢不喜欢舔你真是白活这么大了垃圾！你怎么不回家舔你妈啊你！今天也就是突发奇想才发布的广告好多人加我我都很有礼貌的回复了不适合的都大家说了我不找离婚的更不找这种下流的！这种垃圾怎么活这么大的？谁能告诉我一下？谢谢...  <a class="more_txt" href="http://muchong.com/t-12748499-1" target="_blank">显示全部</a></div>
+                                </div>
+                                <div class="iother clearfix">
+                                    <a href="http://muchong.com/f-198-1" target="_blank"><span class="board_name">硕博家园</span></a>
+                                    <ul>
+                                        <li>
+                                            <i class="iconfont icon-view"></i><span>150</span>
+                                        </li>
+                                        <li>
+                                            <i class="iconfont icon-comment"></i><span>3</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><div class="list_item clearfix">
+                            <h3 class="ititle"><a href="http://muchong.com/t-12748507-1" target="_blank">双十一买点什么？？</a></h3>
+                            <div class="icontent">
+                                <a href="http://muchong.com/bbs/space.php?uid=6578313" target="_blank">
+                                    <div class="iuser">
+                                        <div class="avatar">
+                                            <img src="http://muchongavatar.xmcimg.com/data/avatar/46/db/6578313_1504588733.jpg">
+                                        </div>
+                                        <div class="iname">CapHope</div>
+                                        <div class="imotto"></div>
+                                    </div>
+                                </a>
+                                <div class="itext">
+                                    <div class="nop">双十一买点什么？？ </div>
+                                </div>
+                                <div class="iother clearfix">
+                                    <a href="http://muchong.com/f-198-1" target="_blank"><span class="board_name">硕博家园</span></a>
+                                    <ul>
+                                        <li>
+                                            <i class="iconfont icon-view"></i><span>100</span>
+                                        </li>
+                                        <li>
+                                            <i class="iconfont icon-comment"></i><span>2</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><div class="list_item clearfix">
+                            <h3 class="ititle"><a href="http://muchong.com/t-12748505-1" target="_blank">求能做出一张完整的淀粉膜</a></h3>
+                            <div class="icontent">
+                                <a href="http://muchong.com/bbs/space.php?uid=10571736" target="_blank">
+                                    <div class="iuser">
+                                        <div class="avatar">
+                                            <img src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/app/money@3x.png">
+                                        </div>
+                                        <div class="iname">Libra912</div>
+                                        <div class="imotto"></div>
+                                    </div>
+                                </a>
+                                <div class="itext">
+                                    <div class="nop">目前课题是做全淀粉型塑料膜只加甘油淀粉10g100ml水100ml氢氧化钠溶液甘油2.5g糊化后超声波脱气倒膜50度鼓风干燥问题1.糊化后取出放入超声波中那超声波中的水浴是要提前加热到糊化的温度吗？还是静置冷却一会放入30度的水浴中？就是不知道糊化后脱气的水浴...  <a class="more_txt" href="http://muchong.com/t-12748505-1" target="_blank">显示全部</a></div>
+                                </div>
+                                <div class="iother clearfix">
+                                    <a href="http://muchong.com/f-198-1" target="_blank"><span class="board_name">硕博家园</span></a>
+                                    <ul>
+                                        <li>
+                                            <i class="iconfont icon-view"></i><span>1000</span>
+                                        </li>
+                                        <li>
+                                            <i class="iconfont icon-comment"></i><span>20</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><div class="list_item clearfix">
+                            <h3 class="ititle"><a href="http://muchong.com/t-12748491-1" target="_blank">像我这样的人</a></h3>
+                            <div class="icontent">
+                                <a href="http://muchong.com/bbs/space.php?uid=5188995" target="_blank">
+                                    <div class="iuser">
+                                        <div class="avatar">
+                                            <img src="http://muchongimg.xmcimg.com/oss2/avatar/0a/e4/5188995_1529397974.jpg">
+                                        </div>
+                                        <div class="iname">CiroImmobile</div>
+                                        <div class="imotto"></div>
+                                    </div>
+                                </a>
+                                <div class="itext">
+                                    <div class="nop">25岁昨晚分手了这一单起来不晓得什么时候才能脱单哦哎无奈 </div>
+                                </div>
+                                <div class="iother clearfix">
+                                    <a href="http://muchong.com/f-6-1" target="_blank"><span class="board_name">休闲灌水</span></a>
+                                    <ul>
+                                        <li>
+                                            <i class="iconfont icon-view"></i><span>750</span>
+                                        </li>
+                                        <li>
+                                            <i class="iconfont icon-comment"></i><span>15</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><div class="list_item clearfix">
+                            <h3 class="ititle"><a href="http://muchong.com/t-12748498-1" target="_blank">保研桥梁，大四至研究生期间需做哪些准备？</a></h3>
+                            <div class="icontent">
+                                <a href="http://muchong.com/bbs/space.php?uid=10004056" target="_blank">
+                                    <div class="iuser">
+                                        <div class="avatar">
+                                            <img src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/app/money@3x.png">
+                                        </div>
+                                        <div class="iname">SHngu</div>
+                                        <div class="imotto"></div>
+                                    </div>
+                                </a>
+                                <div class="itext">
+                                    <div class="nop">如题有没有过来人师兄师姐们指点一下翱老师说让学学ansys还有其他可干的事情吗？(o^^o) </div>
+                                </div>
+                                <div class="iother clearfix">
+                                    <a href="http://muchong.com/f-6-1" target="_blank"><span class="board_name">休闲灌水</span></a>
+                                    <ul>
+                                        <li>
+                                            <i class="iconfont icon-view"></i><span>1100</span>
+                                        </li>
+                                        <li>
+                                            <i class="iconfont icon-comment"></i><span>22</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><div class="list_item clearfix">
+                            <h3 class="ititle"><a href="http://muchong.com/t-12748502-1" target="_blank">心态很重要，静等新岗位。。。。</a></h3>
+                            <div class="icontent">
+                                <a href="http://muchong.com/bbs/space.php?uid=7384403" target="_blank">
+                                    <div class="iuser">
+                                        <div class="avatar">
+                                            <img src="http://muchongavatar.xmcimg.com/data/avatar/37/fc/7384403_1509189410.jpg">
+                                        </div>
+                                        <div class="iname">lhl123lhl</div>
+                                        <div class="imotto"></div>
+                                    </div>
+                                </a>
+                                <div class="itext">
+                                    <div class="nop">今天度过了一个愉快的下午 </div>
+                                </div>
+                                <div class="iother clearfix">
+                                    <a href="http://muchong.com/f-133-1" target="_blank"><span class="board_name">虫友互识</span></a>
+                                    <ul>
+                                        <li>
+                                            <i class="iconfont icon-view"></i><span>0</span>
+                                        </li>
+                                        <li>
+                                            <i class="iconfont icon-comment"></i><span>0</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><div class="list_item clearfix">
+                            <h3 class="ititle"><a href="http://muchong.com/t-12748501-1" target="_blank">求助，如何向老师汇报工作？？？</a></h3>
+                            <div class="icontent">
+                                <a href="http://muchong.com/bbs/space.php?uid=8846917" target="_blank">
+                                    <div class="iuser">
+                                        <div class="avatar">
+                                            <img src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/app/noavatar.png">
+                                        </div>
+                                        <div class="iname">stu_stella</div>
+                                        <div class="imotto"></div>
+                                    </div>
+                                </a>
+                                <div class="itext">
+                                    <div class="nop">求助如题……明天要给老师汇报自己的研究工作进展我滴天最近时间都给他搞项目了最近自己研究没有进展明天和老师说点啥？？？？想不开……郁闷……  <a class="more_txt" href="http://muchong.com/t-12748501-1" target="_blank">显示全部</a></div>
+                                </div>
+                                <div class="iother clearfix">
+                                    <a href="http://muchong.com/f-6-1" target="_blank"><span class="board_name">休闲灌水</span></a>
+                                    <ul>
+                                        <li>
+                                            <i class="iconfont icon-view"></i><span>100</span>
+                                        </li>
+                                        <li>
+                                            <i class="iconfont icon-comment"></i><span>2</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><div class="list_item clearfix">
+                            <h3 class="ititle"><a href="http://muchong.com/t-12748496-1" target="_blank">招生简章，有人在复旦吗？帮忙打开一下，谢谢。</a></h3>
+                            <div class="icontent">
+                                <a href="http://muchong.com/bbs/space.php?uid=1117493" target="_blank">
+                                    <div class="iuser">
+                                        <div class="avatar">
+                                            <img src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/app/noavatar.png">
+                                        </div>
+                                        <div class="iname">囧残囧花囧</div>
+                                        <div class="imotto"></div>
+                                    </div>
+                                </a>
+                                <div class="itext">
+                                    <div class="nop">复旦大学校内网址招生简章有人在复旦吗？帮忙打开一下谢谢http://gsstatic.fudan.edu.cn/bs/谁有空帮我打开一下截个图只有校内网能打开谢谢  <a class="more_txt" href="http://muchong.com/t-12748496-1" target="_blank">显示全部</a></div>
+                                </div>
+                                <div class="iother clearfix">
+                                    <a href="http://muchong.com/f-198-1" target="_blank"><span class="board_name">硕博家园</span></a>
+                                    <ul>
+                                        <li>
+                                            <i class="iconfont icon-view"></i><span>0</span>
+                                        </li>
+                                        <li>
+                                            <i class="iconfont icon-comment"></i><span>0</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><div class="list_item clearfix">
+                            <h3 class="ititle"><a href="http://muchong.com/t-12748495-1" target="_blank">博士招生:机器学习方向, University of Bonn,Germany.</a></h3>
+                            <div class="icontent">
+                                <a href="http://muchong.com/bbs/space.php?uid=5133083" target="_blank">
+                                    <div class="iuser">
+                                        <div class="avatar">
+                                            <img src="http://qzapp.qlogo.cn/qzapp/1104753073/A577F52D7CDD51796E66739909A33667/100">
+                                        </div>
+                                        <div class="iname">soledad921</div>
+                                        <div class="imotto"></div>
+                                    </div>
+                                </a>
+                                <div class="itext">
+                                    <div class="nop">我们欢迎对科研有兴趣跟激情的优秀中国大学生加入德国波恩大学计算机科学系从事全球顶尖的科研项目和技术培训我们将提供包括录取通知书在内的各类材料并随后协助他们申请奖学金包括中国政府奖学金（http://www.csc.edu.cn/）和德国及欧盟的的各类奖学金比如...  <a class="more_txt" href="http://muchong.com/t-12748495-1" target="_blank">显示全部</a></div>
+                                </div>
+                                <div class="iother clearfix">
+                                    <a href="http://muchong.com/f-131-1" target="_blank"><span class="board_name">公派出国</span></a>
+                                    <ul>
+                                        <li>
+                                            <i class="iconfont icon-view"></i><span>50</span>
+                                        </li>
+                                        <li>
+                                            <i class="iconfont icon-comment"></i><span>1</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div></div>
+                        <a class="btn_load btn_new_load" href="javascript:void(0);" data-id="2">加载更多</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="w300 fr">
+            <div class="tool_btn">
+                <ul>
+                    <li>
+                        <a class="btn_post" href="http://muchong.com/bbs/post.php?action=newthread" target="_blank">+发帖</a>
+                    </li>
+                    <li>
+                        <a class="btn_daily_redpackage" href="http://muchong.com/bbs/memcp.php?action=getcredit" target="_blank">每日红包</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="unit mt15">
+                <div class="uhd">
+                    <div class="u_title">24小时热帖</div>
+                    <a class="link_more" onclick="change_text('http://muchong.com/bbs/api.php?ac=portal&amp;op=hot24thread&amp;in_xmc=1','.ajax_24thread','ajax_24thread');" href="#">换一批</a>
+                </div>
+                <div class="ubd">
+                    <div class="list01">
+                        <ul class="ajax_24thread">
+                            <li>
+                                <a href="http://muchong.com/t-12747650-1" target="_blank">读博选择</a>
+                                <span class="num_zan"><i class="iconfont "></i><em>16</em></span>
+                            </li>
+                            <li>
+                                <a href="http://muchong.com/t-12735594-1" target="_blank">帽子科研还是学术探索吗？</a>
+                                <span class="num_zan"><i class="iconfont "></i><em>6</em></span>
+                            </li>
+                            <li>
+                                <a href="http://muchong.com/t-12745715-1" target="_blank">不想变成女博士</a>
+                                <span class="num_zan"><i class="iconfont "></i><em>61</em></span>
+                            </li>
+                            <li>
+                                <a href="http://muchong.com/t-12745025-1" target="_blank">托福成绩</a>
+                                <span class="num_zan"><i class="iconfont "></i><em>6</em></span>
+                            </li>
+                            <li>
+                                <a href="http://muchong.com/t-12748184-1" target="_blank">我为什么要考博。。。</a>
+                                <span class="num_zan"><i class="iconfont "></i><em>23</em></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script id="ajax_24thread" style="display:none" type="text/html">
+                {|each list as value i|}
+                <li>
+                    <a href="{|value.url|}" target="_blank">{|value.subject|}</a>
+                    <span class="num_zan"><i class="iconfont "></i><em>{|value.replies|}</em></span>
+                </li>
+                {|/each|}
+            </script>
+            <div class="unit mt15">
+                <div class="uhd">
+                <div class="u_title">我的版块</div>
+                <a class="link_more" href="myread.php" target="_blank">全部</a>
+                </div>
+                <div class="ubd">
+                <div class="list02">
+                <ul class="hotmeforum">
+                <li>
+                <dl>
+                <dt><a href="http://muchong.com/f-6-1" target="_blank">休闲灌水</a></dt>
+            <dd>今日:1991篇</dd>
+            </dl>
+            <div class="btn_area">
+                <a class="btn_attention disabled follow_btn_a" href="javascript:void(0);" data-id="6">取消关注</a>
+                </div>
+                </li>
+                <li>
+                <dl>
+                <dt><a href="http://muchong.com/f-125-1" target="_blank">论文投稿</a></dt>
+            <dd>今日:975篇</dd>
+            </dl>
+            <div class="btn_area">
+                <a class="btn_attention disabled follow_btn_a" href="javascript:void(0);" data-id="125">取消关注</a>
+                </div>
+                </li>
+                <li>
+                <dl>
+                <dt><a href="http://muchong.com/f-127-1" target="_blank">考研</a></dt>
+            <dd>今日:168篇</dd>
+            </dl>
+            <div class="btn_area">
+                <a class="btn_attention disabled follow_btn_a" href="javascript:void(0);" data-id="127">取消关注</a>
+                </div>
+                </li>
+                <li>
+                <dl>
+                <dt><a href="http://muchong.com/f-131-1" target="_blank">公派出国</a></dt>
+            <dd>今日:239篇</dd>
+            </dl>
+            <div class="btn_area">
+                <a class="btn_attention disabled follow_btn_a" href="javascript:void(0);" data-id="131">取消关注</a>
+                </div>
+                </li>
+                <li>
+                <dl>
+                <dt><a href="http://muchong.com/f-133-1" target="_blank">虫友互识</a></dt>
+            <dd>今日:1916篇</dd>
+            </dl>
+            <div class="btn_area">
+                <a class="btn_attention disabled follow_btn_a" href="javascript:void(0);" data-id="133">取消关注</a>
+                </div>
+                </li>
+                </ul>
+                </div>
+                </div>
+                </div>
+                <div class="unit">
+                <div class="uhd">
+                <div class="u_title">应助之星</div>
+                </div>
+                <div class="ubd">
+                <div class="list03">
+                <ul class="member_shu">
+                <li>
+                <div class="avatar">
+                <img alt="" src="http://muchongimg.xmcimg.com/oss2/avatar/a0/b9/827383_1518749182.jpg">
+                </div>
+                <div class="name"><a href="http://muchong.com/bbs/space.php?uid=827383" target="_blank">nono2009</a></div>
+            <div class="btn_area">
+                <a class="btn_attention follow_btn_a" href="" target="_blank" data-id="827383">+关注</a>
+                </div>
+                </li>
+                <li>
+                <div class="avatar">
+                <img alt="" src="http://muchongimg.xmcimg.com/oss2/avatar/ed/3e/2094312_1534820461.jpg">
+                </div>
+                <div class="name"><a href="http://muchong.com/bbs/space.php?uid=2094312" target="_blank">淡淡幽雅</a></div>
+            <div class="btn_area">
+                <a class="btn_attention follow_btn_a" href="" target="_blank" data-id="2094312">+关注</a>
+                </div>
+                </li>
+                <li>
+                <div class="avatar">
+                <img alt="" src="http://muchongimg.xmcimg.com/oss2/avatar/75/b6/3562708_1521680964.jpg">
+                </div>
+                <div class="name"><a href="http://muchong.com/bbs/space.php?uid=3562708" target="_blank">13813921817</a></div>
+            <div class="btn_area">
+                <a class="btn_attention follow_btn_a" href="" target="_blank" data-id="3562708">+关注</a>
+                </div>
+                </li>
+                <li>
+                <div class="avatar">
+                <img alt="" src="http://muchongavatar.xmcimg.com/data/avatar/29/81/971012.gif">
+                </div>
+                <div class="name"><a href="http://muchong.com/bbs/space.php?uid=971012" target="_blank">paperhunter</a></div>
+            <div class="btn_area">
+                <a class="btn_attention follow_btn_a" href="" target="_blank" data-id="971012">+关注</a>
+                </div>
+                </li>
+                <li>
+                <div class="avatar">
+                <img alt="" src="http://muchongavatar.xmcimg.com/data/avatar/ff/c8/2171443.jpg">
+                </div>
+                <div class="name"><a href="http://muchong.com/bbs/space.php?uid=2171443" target="_blank">bobvan</a></div>
+            <div class="btn_area">
+                <a class="btn_attention follow_btn_a" href="" target="_blank" data-id="2171443">+关注</a>
+                </div>
+                </li>
+
+                </ul>
+                </div>
+                </div>
+                </div><div class="unit mt15">
+                <div class="uhd">
+                <div class="u_title">热门点评期刊</div>
+                <a class="link_more" onclick="change_text('http://muchong.com/bbs/api.php?ac=portal&amp;op=hotjounal&amp;in_xmc=1','.hotjounal','hotjounal');" href="">换一批</a>
+                </div>
+                <div class="ubd">
+                <div class="list01">
+                <ul class="hotjounal">
+                <li>
+                <a href="http://muchong.com/bbs/journal.php?view=detail&amp;jid=7519" target="_blank">SENSORS</a>
+                <span class="num_zan"><i class="iconfont "></i><em>111</em></span>
+            </li>
+            <li>
+            <a href="http://muchong.com/bbs/journal.php?view=detail&amp;jid=4794" target="_blank">JOURNAL OF MATERIALS PROCESSING TECHNOLOGY</a>
+            <span class="num_zan"><i class="iconfont "></i><em>85</em></span>
+            </li>
+            <li>
+            <a href="http://muchong.com/bbs/journal.php?view=detail&amp;jid=8810" target="_blank">ENVIRONMENTAL SCIENCE: PROCESSES &amp; IMPACTS</a>
+            <span class="num_zan"><i class="iconfont "></i><em>6</em></span>
+            </li>
+            <li>
+            <a href="http://muchong.com/bbs/journal.php?view=detail&amp;jid=1663" target="_blank">CHEMICAL RESEARCH IN CHINESE UNIVERSITIES</a>
+            <span class="num_zan"><i class="iconfont "></i><em>26</em></span>
+            </li>
+            <li>
+            <a href="http://muchong.com/bbs/journal.php?view=detail&amp;jid=2508" target="_blank">ENERGIES</a>
+                <span class="num_zan"><i class="iconfont "></i><em>71</em></span>
+            </li>
+            </ul>
+            </div>
+            </div>
+            </div>
+            <script id="hotjounal" style="display:none" type="text/html">
+                {|each list as value i|}
+            <li>
+            <a href="http://muchong.com/bbs/journal.php?view=detail&jid={|value.jid|}" target="_blank">{|value.name|}</a>
+            <span class="num_zan"><i class="iconfont "></i><em>{|value.replynum|}</em></span>
+            </li>
+            {|/each|}
+            </script>
+            <div class="unit mt15">
+                <div class="uhd">
+                    <div class="u_title">热门板块</div>
+                    <a class="link_more" onclick="change_text('http://muchong.com/bbs/api.php?ac=portal&amp;op=hotforums&amp;in_xmc=1','.hotforum','hotforum');" href="">换一批</a>
+                </div>
+                <div class="ubd">
+                    <div class="list02">
+                        <ul class="hotforum">
+                            <li>
+                                <dl>
+                                    <dt><a href="http://muchong.com/f-437-1" target="_blank">论坛更新日志</a></dt>
+                                    <dd>今日:24147篇</dd>
+                                </dl>
+                                <div class="btn_area">
+                                    <a class="btn_attention follow_btn_a" id="myread_fid437" href="#" data-id="437">+关注</a>
+                                </div>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt><a href="http://muchong.com/f-6-1" target="_blank">休闲灌水</a></dt>
+                                    <dd>今日:1991篇</dd>
+                                </dl>
+                                <div class="btn_area">
+                                    <a class="btn_attention follow_btn_a" id="myread_fid6" href="#" data-id="6">+关注</a>
+                                </div>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt><a href="http://muchong.com/f-133-1" target="_blank">虫友互识</a></dt>
+                                    <dd>今日:1916篇</dd>
+                                </dl>
+                                <div class="btn_area">
+                                    <a class="btn_attention follow_btn_a" id="myread_fid133" href="#" data-id="133">+关注</a>
+                                </div>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt><a href="http://muchong.com/f-198-1" target="_blank">硕博家园</a></dt>
+                                    <dd>今日:1351篇</dd>
+                                </dl>
+                                <div class="btn_area">
+                                    <a class="btn_attention follow_btn_a" id="myread_fid198" href="#" data-id="198">+关注</a>
+                                </div>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt><a href="http://muchong.com/f-125-1" target="_blank">论文投稿</a></dt>
+                                    <dd>今日:975篇</dd>
+                                </dl>
+                                <div class="btn_area">
+                                    <a class="btn_attention follow_btn_a" id="myread_fid125" href="#" data-id="125">+关注</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script id="hotforum" style="display:none" type="text/html">
+                {|each list as value i|}
+                <li>
+                    <dl>
+                        <dt><a href="http://muchong.com/f-{|value.fid|}-1" target="_blank">{|value.name|}</a></dt>
+                        <dd>今日:{|value.num|}篇</dd>
+                    </dl>
+                    <div class="btn_area">
+                        <a href="#" class="btn_attention follow_btn_a" id="myread_fid{|value.fid|}"  data-id="{|value.fid|}">+关注</a>
+                    </div>
+                </li>
+                {|/each|}
+            </script>
+            <div class="unit mt15">
+                <div class="uhd">
+                <div class="u_title">热门专辑</div>
+                <a class="link_more btn_change" onclick="change_text('http://muchong.com/bbs/api.php?ac=portal&amp;op=taotie&amp;in_xmc=1','.ajax_taotie','ajax_taotie');" href="">换一批</a>
+                </div>
+                <div class="ubd">
+                <div class="list01">
+                <ul class="ajax_taotie">
+                <li>
+                <a href="/zhuanji-23628-1" target="_blank">小木虫上最有价值的资源宝库</a>
+                <span class="num_zan"><i class="iconfont "></i><em>124</em></span>
+            </li>
+            <li>
+            <a href="/zhuanji-814-1" target="_blank">书籍下载网站</a>
+                <span class="num_zan"><i class="iconfont "></i><em>8444</em></span>
+            </li>
+            <li>
+            <a href="/zhuanji-80532-1" target="_blank">2017考研调剂招生信息</a>
+            <span class="num_zan"><i class="iconfont "></i><em>3751</em></span>
+            </li>
+            <li>
+            <a href="/zhuanji-26-1" target="_blank">★论文写作与投稿经验精华☆</a>
+            <span class="num_zan"><i class="iconfont "></i><em>128</em></span>
+            </li>
+            <li>
+            <a href="/zhuanji-80531-1" target="_blank">2017考研调剂学生信息</a>
+            <span class="num_zan"><i class="iconfont "></i><em>32534</em></span>
+            </li>
+            </ul>
+            </div>
+            </div>
+            </div>
+            <script id="ajax_taotie" style="display:none" type="text/html">
+                {|each list as value i|}
+            <li>
+            <a href="/zhuanji-{|value.ttid|}-1" target="_blank">{|value.name|}</a>
+            <span class="num_zan"><i class="iconfont "></i><em>{|value.threadnum|}</em></span>
+            </li>
+            {|/each|}
+            </script>
+            <!--下载 start-->
+            <div class="download mt30" id="J_download">
+                <dl>
+                    <dt>下载小木虫APP</dt>
+                    <dd>与700万科研达人随时交流</dd></dl>
+                <ul>
+                    <li>
+                        <span class="qr01">二维码</span>
+                        <div class="qr_pop"><i class="arrow"></i>
+                            <img alt="" src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/portal/qrcode.png">
+                        </div>
+                    </li>
+                    <li>
+                        <span class="qr02">IOS</span>
+                        <div class="qr_pop"><i class="arrow"></i>
+                            <img alt="" src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/portal/qrcode_ios.png">
+                        </div>
+                    </li>
+                    <li>
+                        <span class="qr03">安卓</span>
+                        <div class="qr_pop"><i class="arrow"></i>
+                            <img alt="" src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/portal/qrcode_android.png">
+                        </div>
+                    </li>
+                </ul>
+            </div></div>
+    </div>
+</div>
+<script id="template_index" style="display:none" type="text/html">
+    {|each list as value i|}
+    <div class="list_item clearfix">
+        <h3 class="ititle"><a href="{|value.url|}">{|value.subject|}</a></h3>
+        {|if value.timages|}
+        <a href="{|value.url|}">
+            <div class="img_wrap">
+                <img src="{|value.timages|}" alt="">
+            </div>
+        </a>
+        {|/if|}
+        <div class="icontent">
+            <a href="http://muchong.com/bbs/space.php?uid={|value.authorid|}" target="_blank">
+                <div class="iuser">
+                    <div class="avatar">
+                        <img src="{|value.avatar|}">
+                    </div>
+                    <div class="iname">{|value.author|}</div>
+                    <div class="imotto"></div>
+                </div>
+            </a>
+            <div class="itext">
+                {|if  value.timages|}
+                <div class="p">{|value.desc|} {|if value.more>0|} <a href="{|value.url|}" class="more_txt">显示全部</a> {|/if|}</div>
+                {|else|}
+                <div class="nop">{|value.desc|} {|if value.more>0|}<a href="{|value.url|}" class="more_txt">显示全部</a> {|/if|}</div>
+                {|/if|}
+            </div>
+
+            <div class="iother clearfix">
+                <a href="{|value.furl|}" target="_blank"><span class="board_name">{|value.fname|}</span></a>
+                <ul>
+                    <li>
+                        <i class="iconfont icon-view"></i><span>{|value.countview|}</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-comment"></i><span>{|value.replies|}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {|/each|}
+</script><script>
+    var new_total = 150;
+    $(".btn_new_load").click(function(){
+        page=$(".btn_new_load").attr('data-id');
+        $.post("http://muchong.com/index.php?inajax=1&type=new&page="+page+"&rd=" + Math.random(), function (result) {
+            if (result.code>0) {
+                $(".main_con").append("加载错误");
+                return false;
+            } else {
+                MessageInfo = template("template_index", result.res);
+                page = result.res.page;
+                $(".btn_new_load").attr('data-id',parseInt(page)+1);
+                if(new_total == page){
+                    $(".btn_new_load").hide();
+                }
+                $(".index_new_list").append(MessageInfo);
+                return false;
+            }
+        });
+    });
+    var help_total = 150;
+    $(".btn_help_load").click(function(){
+        page=$(".btn_new_load").attr('data-id');
+        $.post("http://muchong.com/index.php?inajax=1&type=help&page="+page+"&rd=" + Math.random(), function (result) {
+            if (result.code>0) {
+                $(".main_con").append("加载错误");
+                return false;
+            } else {
+                MessageInfo = template("template_index", result.res);
+                page = result.res.page;
+                $(".btn_new_load").attr('data-id',parseInt(page)+1);
+                if(help_total == page){
+                    $(".btn_new_load").hide();
+                }
+                $(".index_help_list").append(MessageInfo);
+                return false;
+            }
+        });
+    });
+</script>
+
+
+
+<script src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/js/jquery.qrcode.min.js?1"></script>
+<script src="http://muchongimg.xmcimg.com/data/emuch_bbs_images/js/global.js?15373250" charset="gbk"></script>
+<script src="http://push.zhanzhang.baidu.com/push.js"></script>
+<script>
+    ;(function(){
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','http://muchongimg.xmcimg.com/data/emuch_bbs_images/js/qing/js/analytics.js?15373250','ga');
+        ga('create', 'UA-1947017-8', 'auto');
+        ga('set', 'userId', 5820335);
+        ga('create', 'UA-XXXX-Y', { 'userId': '5820335' });
+        ga('send', 'pageview');
+        ss = '';
+        var arr = [109, 117, 99, 104, 111, 110, 103, 46, 99, 111, 109]
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?2207ecfb7b2633a3bc5c4968feb58569";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        for(var i  =0 ;i<11;i++){
+            ss += String.fromCharCode(arr[i]);
+        }
+    })();
+
+    function show_paper(pic, id, url){
+        img = pic + "?" + Date.parse(new Date());
+        if(img.naturalWidth){
+            MuchongDialog.show(pic, url, id, img.naturalWidth, img.naturalHeight);
+            setcookie('paper_' + id, 1, 86400, '/');
+        }else{
+            var image = new Image();
+            image.onload = function(){
+                MuchongDialog.show(pic, url, id, image.width, image.height);
+                setcookie('paper_' + id, 1, 86400, '/');
+            }
+            image.src = img;
+        }
+    }
+    var MuchongDialog = {
+        show: function(pic, url, id, width, height){
+            var showid = 'paper_'+id;
+            var width = parseInt(width);
+            var height = parseInt(height);
+            var mask = document.createElement('div');
+            mask.id="mask";
+            mask.style.width = "100%";
+            mask.style.height = "100%";
+            if(pic){
+                mask.style.background = "rgba(0,0,0,.5)";
+            } else {
+                mask.style.background = "rgba(0,0,0,.988)";
+            }
+            mask.style.position = "fixed";
+            mask.style.top = "0";
+            mask.style.left = "0";
+            mask.style.zIndex = "9999";
+            var pmake = document.getElementById('mask');
+            if(!pmake){
+                document.getElementById('append_parent').appendChild(mask);
+            }
+            var paper_obj = document.getElementById(showid);
+            if(paper_obj){
+                paper_obj.parentNode.removeChild(paper_obj);
+            }
+            var dom = document.createElement("div");
+            dom.id = showid;
+            dom.style.position = "fixed";
+            dom.style.zIndex = "99999";
+            dom.style.block = "block";
+            if(pic) {
+                dom.innerHTML = '<div style="position:absolute;z-index:100; width:180px; height:180px;right: 0;" onclick="MuchongDialog.close_paper('+showid+')">' +
+                    '<a href="javascript:void(0);" style="float:right; display:block; text-align: right;width:180px; height:180px;" ;></a></div>' +
+                    '<a href="'+url+'&f=yg&w=paper20161111" target="_blank"><img src="'+pic+'"></a>';
+            } else {
+                dom.innerHTML = '<div style="position:absolute;z-index:100; width:180px; height:180px;right: 0;" onclick="MuchongDialog.close_paper('+showid+')">' +
+                    '<a href="javascript:void(0);" style="float:right; display:block; text-align: right;width:180px; height:180px;" ;></a></div>' +
+                    '<h3>微信扫描下载小木虫APP</h3><div id="qrcode"></div>';
+            }
+
+            var scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            _clientheight = Math.min(document.body.clientHeight, document.documentElement.clientHeight) || 0;
+            if(_clientheight == 0) _clientheight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+            scrolltop = 0 ;
+            var _clientwidth = document.documentElement.clientWidth || document.body.clientWidth;
+            dom.style.top = (scrolltop + (_clientheight - height) / 2) + "px";
+            dom.style.left = (_clientwidth - width) / 2 + "px";
+            dom.style.width = width + "px";
+            dom.style.height = height + "px";
+            document.getElementById('append_parent').appendChild(dom);
+        },
+        close_paper:function (obj){
+            var mask = document.getElementById('mask');
+            if(obj){
+                obj.parentNode.removeChild(obj);
+            }
+            mask.parentNode.removeChild(mask);
+        }
+    }
+</script>
+
+
+</body></html>

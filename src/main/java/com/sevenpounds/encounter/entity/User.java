@@ -2,7 +2,7 @@ package com.sevenpounds.encounter.entity;
 
 public class User {
 	  //用户id
-    private int userId;
+    private long userId;
     //用户名
     private String userName;
     //用户类型  1表示游客，2表示登陆用户，3表示问题用户，4表示管理员，5表示超级管理员
@@ -11,7 +11,7 @@ public class User {
     private String password;
     //
     private String gender;
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {

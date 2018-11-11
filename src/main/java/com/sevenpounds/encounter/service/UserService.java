@@ -13,7 +13,7 @@ public interface UserService {
 
     User getUserById(long userId);
 
-    UserExecution addShop(User user) throws UserOperationException;
+    UserExecution addUser(User user) throws UserOperationException;
 
     UserExecution updateUserName(long userId) throws UserOperationException;
 

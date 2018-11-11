@@ -30,9 +30,9 @@
 		<div id="page-label-input" class="page">
 			<header class="bar bar-nav">
 				<a class="button button-link button-nav pull-left back"
-					href="/demos/form"> <span class="icon icon-left"></span> 返回
+					href="/demos/form"> <span class="icon icon-left"></span> RETURN
 				</a>
-				<h1 class="title">用户注册</h1>
+				<h1 class="title">REGISTER</h1>
 			</header>
 			<div class="content">
 				<div class="list-block">
@@ -41,9 +41,9 @@
 						<li>
 							<div class="item-content">
 								<div class="item-inner">
-									<div class="item-title label">用户名</div>
+									<div class="item-title label">user name</div>
 									<div class="item-input">
-										<input type="text" id="user-name" placeholder="请输入用户名">
+										<input type="text" id="user-name" placeholder="please enter your user name">
 									</div>
 								</div>
 							</div>
@@ -53,9 +53,9 @@
 						<li>
 							<div class="item-content">
 								<div class="item-inner">
-									<div class="item-title label">密码</div>
+									<div class="item-title label">password</div>
 									<div class="item-input">
-										<input type="password" id="password" placeholder="请输入密码">
+										<input type="password" id="password" placeholder="please enter your user password">
 									</div>
 								</div>
 							</div>
@@ -64,9 +64,9 @@
 						<li>
 							<div class="item-content">
 								<div class="item-inner">
-									<div class="item-title label">确认密码</div>
+									<div class="item-title label">confirm password</div>
 									<div class="item-input">
-										<input type="password" id="confirmpassword" placeholder="请再次输入密码">
+										<input type="password" id="confirmpassword" placeholder="please enter your user password again">
 									</div>
 								</div>
 							</div>
@@ -76,40 +76,26 @@
 						<li>
                              <div class="item-content">
                              <div class="item-inner">
-                             <div class="item-title label">性别</div>
+                             <div class="item-title label">gender</div>
                              <div class="item-input">
-                               <select>
-                                  <option>男</option>
-                                  <option>女</option>
-                               </select>
+								 <select id="gender">
+									 <option value="female" >女</option>
+									 <option value="male" selected="selected">男</option>
+								 </select>
                            </div>
                           </div>
                        </div>
                    </li>
-						
-						<!-- 验证码 ka -->
-						<li>
-							<div class="item-content">
-								<div class="item-inner">
-									<div class="item-title label">验证码</div>
-									<input type="text" id="j_captcha" placeholder="验证码">
-									<div class="item-input">
-										<img id="captcha_img" alt="点击更换" title="点击更换"
-											onclick="changeVerifyCode(this)" src="../Kaptcha" />
-									</div>
-								</div>
-							</div>
-						</li>
 					</ul>
 				</div>
 				<div class="content-block">
 					<div class="row">
 						<div class="col-50">
-							<a href="/o2o/shopadmin/shopmanagement" class="button button-big button-fill button-danger">返回</a>
+							<a href="/o2o/shopadmin/shopmanagement" class="button button-big button-fill button-danger">return</a>
 						</div>
 						<div class="col-50">
 							<a href="#" class="button button-big button-fill button-success"
-								id="submit">提交</a>
+								id="submit">submit</a>
 						</div>
 					</div>
 				</div>
@@ -126,6 +112,6 @@
 	<script type='text/javascript' src='../resources/js/common/common.js'
 		charset='utf-8'></script>
 	<script type='text/javascript'
-		src='../resources/js/shop/shopoperation.js' charset='utf-8'></script>
+		src='../resources/js/user/register.js' charset='utf-8'></script>
 </body>
 </html>

@@ -7,12 +7,14 @@ import com.sevenpounds.encounter.enums.UserStateEnums;
 import com.sevenpounds.encounter.exceptions.UserOperationException;
 import com.sevenpounds.encounter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
 /**
  * Create by jingzfan on 9/5/2018.
  */
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -29,12 +31,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserExecution addShop(User user) throws UserOperationException {
+    public UserExecution addUser(User user) throws UserOperationException {
         // 空值判断
         if (user == null) {
             return new UserExecution(UserStateEnums.NULL_USER);
         }
             user.setUserType(2);
+        //TODO 注册时间
             int effectedNum = userDao.insertUser(user);
             if (effectedNum <= 0) {
                 throw new UserOperationException("用户注册失败");
